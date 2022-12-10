@@ -1,0 +1,43 @@
+#include<stdio.h>
+int main()
+{
+	int arr[100],n,i,beg,end,mid,flag=0,key;
+	printf("enter the number of element");
+	scanf("%d",&n);
+	printf("\n enter %d array element in ascending order",n);
+	for(i=0;i<n;i++)
+	{
+		scanf("%d",&arr[i]);
+	}
+	printf("\n enter the key");
+	scanf("%d",&key);
+	//apply binary searching
+	beg=0;
+	end=n-1;
+	while(beg<=end)
+	{
+		mid=(beg+end)/2;
+		if(arr[mid]==key)
+		{
+		
+		
+			printf("key found at index=%d",mid);
+			flag=1;
+			break;
+	}
+		//left key
+		else if(key<arr[mid])
+		{
+			end=mid-1;
+			
+		}
+		else
+		//right half
+		{
+			beg=mid+1;
+		}
+		if(flag==0)
+		printf("key does not exist");
+		return 0;
+	}
+}
